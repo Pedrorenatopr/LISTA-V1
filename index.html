@@ -356,7 +356,10 @@
 
             texto += `💰 *VALOR TOTAL GASTO: ${formatarDinheiro(total)}*`;
 
-            const url = `https://wa.me/?text=${encodeURIComponent(texto)}`;
+            // Usa api.whatsapp.com que funciona melhor em celulares para forçar o app nativo
+            const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(texto)}`;
+            
+            // Abre o link na mesma janela ou em uma nova dependendo do contexto do dispositivo
             window.open(url, '_blank');
         }
 
